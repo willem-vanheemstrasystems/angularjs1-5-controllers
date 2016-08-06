@@ -72,12 +72,29 @@ Last Name: Doe
 Gender: Male
 ```
 
-#What happens if you misspell the controller name
+#What happens if the controller name is misspelled
 
-The HTML will render the values literally
+The HTML will render the values literally, the binding expressions in the view that are in the scope of the controller will not be evaluated.
 
 ```javascript
 First Name: {{ employee.firstName }}
 Last Name: {{ employee.lastName }}
 Gender: {{ employee.gender }}
 ```
+
+Also, the console window of the browser will raise an error of the controller being undefined.
+
+#What happens if a property name in the binding expression is misspelled
+
+For example, a misspelled property 'gende' instead of 'gender' results in HTML rendering
+
+```javascript
+First Name: John
+Last Name: Doe
+Gender: 
+```
+
+In other words, the value is not displayed at all. In addition, there is no error raised in the console window of the browser.
+
+Expression evaluation in angular is forgiving. Angular will not raise an error, it will return a value of null or undefined.
+
