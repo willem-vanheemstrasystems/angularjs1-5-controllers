@@ -98,3 +98,20 @@ In other words, the value is not displayed at all. In addition, there is no erro
 
 Expression evaluation in angular is forgiving. Angular will not raise an error, it will return a value of null or undefined.
 
+#How to create a module, controller function and register the controller with the module all in one line
+ 
+This is possible, using the method chaining mechanism as follows:
+ 
+```javascript
+var myApp = angular
+  .module("myModule", [])
+  .controller("myController", function($scope) {
+    var employee = {
+      firstName: "John",
+      lastName: "Doe",
+      gender: "Male"
+    };
+    // Attach the complex object to the scope
+    $scope.employee = employee;
+  });
+```
